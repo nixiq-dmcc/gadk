@@ -21,9 +21,9 @@ type API struct {
 // is used.
 
 func NewAPI(endpoint string, c *fasthttp.Client) *API {
-	// if c == nil {
-	// 	c = ""
-	// }
+	if c == nil {
+		c = nil
+	}
 
 	if endpoint == "" {
 		endpoint = "http://localhost:14265/"
@@ -107,7 +107,7 @@ type GetNodeInfoResponse struct {
 	LatestMilestoneIndex             int64  `json:"latestMilestoneIndex"`
 	LatestSolidSubmeshMilestone      Trytes `json:"latestSolidSubmeshMilestone"`
 	LatestSolidSubmeshMilestoneIndex int64  `json:"latestSolidSubmeshMilestoneIndex"`
-	Neighbors                        int64  `json:"neighbors"`
+	Peers                        	 int64  `json:"peers"`
 	PacketQueueSize                  int64  `json:"packetQueueSize"`
 	Time                             int64  `json:"time"`
 	Tips                             int64  `json:"tips"`
